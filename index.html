@@ -23,11 +23,12 @@ main{max-width:1440px}
 .hero .velo{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(23,21,18,.2) 0%,rgba(23,21,18,.45) 55%,rgba(23,21,18,.78) 100%)}
 .hero-credito{position:absolute;z-index:2;right:clamp(20px,5vw,64px);bottom:20px;max-width:52ch;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.03em;color:var(--texto);background:rgba(23,21,18,.55);padding:5px 10px}
 .hero-credito .pref{color:var(--acento);margin-right:2px}
-.hero-controles{position:absolute;z-index:2;right:clamp(20px,5vw,64px);top:28px;display:flex;gap:10px}
-.hero-dot{width:9px;height:9px;padding:0;border-radius:50%;border:1px solid rgba(216,210,196,.55);background:transparent;cursor:pointer;transition:background .25s,border-color .25s}
-.hero-dot:hover{border-color:var(--acento)}
-.hero-dot.activo{background:var(--acento);border-color:var(--acento)}
-.hero-dot:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
+.hero-controles{position:absolute;z-index:2;right:clamp(12px,4vw,56px);top:16px;display:flex}
+.hero-dot{position:relative;width:34px;height:34px;padding:0;margin:0;border:none;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.hero-dot::after{content:"";width:9px;height:9px;border-radius:50%;border:1px solid rgba(216,210,196,.55);background:transparent;transition:background .25s,border-color .25s}
+.hero-dot:hover::after{border-color:var(--acento)}
+.hero-dot.activo::after{background:var(--acento);border-color:var(--acento)}
+.hero-dot:focus-visible{outline:2px solid var(--acento);outline-offset:-4px}
 /* ---------- manifiesto ---------- */
 #manifiesto .texto-manifiesto{font-size:1.375rem;font-weight:300;max-width:62ch;color:var(--texto)}
 /* ---------- obras ---------- */
