@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="description" content="Todo es Desierto — Pieza de Paisaje, Barrio Miraflores, Viña del Mar. Intervención con un epígrafe de Álvaro de Campos.">
+<title>Dossier — Todo es Desierto — Pieza de Paisaje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/vendor/leaflet.css">
+<link rel="stylesheet" href="assets/obra.css">
+</head>
+<body>
+
+<svg class="ruido" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <filter id="r"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"/></filter>
+  <rect width="100%" height="100%" filter="url(#r)"/>
+</svg>
+
+<header class="sidebar">
+  <div>
+    <a href="index.html" class="nombre" style="color:inherit">Carlos Ceruti Lagos</a>
+    <div class="sub">PIEZA DE PAISAJE · 2014—</div>
+  </div>
+  <nav>
+    <a href="index.html#obras"><span class="num">01</span>Obras</a>
+    <a href="index.html#metodologia"><span class="num">02</span>Metodología</a>
+    <a href="index.html#dossiers"><span class="num">03</span>Dossiers</a>
+    <a href="index.html#diario"><span class="num">04</span>Diario</a>
+    <a href="index.html#artista"><span class="num">05</span>Artista</a>
+    <a href="index.html#colofon"><span class="num">06</span>Colofón</a>
+  </nav>
+  <div class="coords"><a href="archivo.html">33°01′S · 71°33′O</a></div>
+</header>
+
+<main>
+  <div class="envoltura">
+    <section>
+      <p class="ficha-dossier">Dossier · Todo es Desierto</p>
+      <h1>Pieza de Paisaje / Todo es Desierto</h1>
+      <p class="ficha-meta">BARRIO MIRAFLORES, VIÑA DEL MAR · 33°01′S 71°33′O</p>
+
+      <p class="cita">«Grandes son los desiertos, y todo es desierto.»</p>
+      <p class="mono" style="font-size:.8rem;color:var(--texto-suave);margin-top:8px">— ÁLVARO DE CAMPOS</p>
+
+      <p class="nota-breve">Ficha breve: en el blog original esta entrada es el epígrafe de Álvaro de Campos (heterónimo de Fernando Pessoa) sin desarrollo posterior de la obra.</p>
+
+      <div class="mapa-obra">
+            <div class="mapa-obra-cabecera"><span>Ubicación</span><span class="region">VALPARAÍSO</span></div>
+            <div class="mapa-obra-mapa" data-lat="-33.009" data-lng="-71.548" data-zoom="14" role="img" aria-label="Mapa real de Valparaíso con el punto de la obra marcado en sus coordenadas exactas"></div>
+            <p class="mapa-obra-coord">33°01′S · 71°33′O</p>
+          </div>
+    </section>
+
+    <footer class="navegacion">
+      <a href="obra18.html">← DOSSIER ANTERIOR · CARAVANA</a>
+      <a href="obra20.html">SIGUIENTE DOSSIER → LA CASA DE ATRÁS</a>
+    </footer>
+  </div>
+</main>
+
+<script src="assets/vendor/leaflet.js"></script>
+<script src="assets/mapa-obra.js" defer></script>
+<script src="assets/lightbox.js" defer></script>
+</body>
+</html>

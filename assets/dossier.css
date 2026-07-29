@@ -1,0 +1,13 @@
+/* Plantilla de ensayo de dossier — extiende assets/base.css */
+main{max-width:900px}
+.envoltura{max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+.autor{font-family:"IBM Plex Mono",monospace;font-size:.9375rem;color:var(--texto-suave);line-height:1.9;margin-bottom:48px}
+.fragmento{border-left:2px solid var(--linea);padding-left:28px;margin:32px 0}
+.fragmento p{color:var(--texto-suave)}
+.fragmento p:first-child{font-size:1.25rem;line-height:1.7}
+.fragmento p+p{margin-top:20px}
+.nota{margin-top:56px;border-top:1px solid var(--linea);padding-top:24px;font-family:"IBM Plex Mono",monospace;font-size:.875rem;letter-spacing:.02em;color:var(--texto-suave)}
+.navegacion{max-width:720px;margin:0 auto}
+.fragmento h3{margin-top:0}
+.fragmento .epigrafe{font-style:italic;color:var(--texto)}
+.lista-refs{font-family:"IBM Plex Mono",monospace;font-size:.875rem;color:var(--texto-suave);line-height:2.1;margin:32px 0}
