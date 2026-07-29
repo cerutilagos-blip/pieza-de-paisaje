@@ -17,12 +17,10 @@ main{max-width:1440px}
 .envoltura{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
 /* ---------- hero ---------- */
 .hero{position:relative;padding:0;height:78vh;min-height:480px;overflow:hidden;border-bottom:1px solid var(--linea);margin-left:-240px;width:calc(100% + 240px)}
-.hero-carrusel{position:absolute;inset:0}
-.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1.4s ease}
+.hero-carrusel{position:absolute;inset:0;background:#0c0b09}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0c0b09;display:block;opacity:0;transition:opacity 1.4s ease}
 .hero-slide.activa{opacity:1}
 .hero .velo{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(23,21,18,.2) 0%,rgba(23,21,18,.45) 55%,rgba(23,21,18,.78) 100%)}
-.hero .hero-cita{position:absolute;z-index:2;left:clamp(20px,5vw,64px);bottom:48px;max-width:30ch;color:var(--texto);text-shadow:0 1px 6px rgba(0,0,0,.7),0 1px 3px rgba(0,0,0,.45)}
-.hero .hero-attr{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--texto);margin-top:12px;letter-spacing:.06em}
 .hero-credito{position:absolute;z-index:2;right:clamp(20px,5vw,64px);bottom:20px;max-width:52ch;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.03em;color:var(--texto);background:rgba(23,21,18,.55);padding:5px 10px}
 .hero-credito .pref{color:var(--acento);margin-right:2px}
 .hero-controles{position:absolute;z-index:2;right:clamp(20px,5vw,64px);top:28px;display:flex;gap:10px}
@@ -111,7 +109,6 @@ details .entradas a:hover{color:var(--enlace-hover)}
 #artista .meta{margin-top:24px;font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--texto-suave)}
 /* ---------- colofon ---------- */
 #colofon{border-top:1px solid var(--linea)}
-#colofon .cita-grande{font-size:2rem;max-width:24ch;margin-bottom:32px}
 .colofon-attr{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--texto-suave);margin-top:32px}
 /* ---------- coordenada viva ---------- */
 .regla{position:fixed;left:248px;top:24px;z-index:55;font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--texto-suave);pointer-events:none;background:var(--fondo);padding:8px 12px;border:1px solid var(--linea)}
@@ -199,10 +196,6 @@ body.brujula-on .brujula{opacity:.9}
       <button type="button" class="hero-dot" data-slide="2" aria-label="Mar Muerto — imagen 3 de 5"></button>
       <button type="button" class="hero-dot" data-slide="3" aria-label="Pieza de Cartón / LUV — imagen 4 de 5"></button>
       <button type="button" class="hero-dot" data-slide="4" aria-label="El Jardín de las Delicias — imagen 5 de 5"></button>
-    </div>
-    <div class="hero-cita">
-      <p class="cita">«Antes de ser obra el pensamiento es trayecto»</p>
-      <p class="hero-attr">— Henri Michaux<span style="display:block;font-size:.65rem;color:var(--texto-suave);margin-top:4px">(adaptación)</span></p>
     </div>
   </section>
 
@@ -486,8 +479,7 @@ body.brujula-on .brujula{opacity:.9}
 
     <section id="colofon" data-coord="-37.3500,-72.7300">
       <h3>06 · Colofón</h3>
-      <p class="cita cita-grande">«Antes de ser obra el pensamiento es trayecto»</p>
-      <p class="colofon-attr">— Henri Michaux · COLOFÓN DEL CUADERNO · PIEZA DE PAISAJE 2014—2026</p>
+      <p class="colofon-attr">COLOFÓN DEL CUADERNO · PIEZA DE PAISAJE 2014—2026</p>
     </section>
 
     <footer class="pie">
