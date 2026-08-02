@@ -17,8 +17,7 @@ main{max-width:1440px}
 .galeria.filas{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;align-items:start}
 figure{margin:0 0 28px;break-inside:avoid;-webkit-column-break-inside:avoid}
 figure:last-child{margin-bottom:0}
-figure img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;border:1px solid var(--linea);cursor:zoom-in;transition:opacity .2s,filter .2s}
-figure img.vertical{aspect-ratio:auto;object-fit:cover}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--linea);cursor:zoom-in;transition:opacity .2s,filter .2s}
 figure img:hover{filter:brightness(1.06)}
 figure img:focus-visible{outline:2px solid var(--acento);outline-offset:3px}
 figcaption{font-family:"IBM Plex Mono",monospace;font-size:.8125rem;letter-spacing:.02em;color:var(--texto-suave);margin-top:10px}
