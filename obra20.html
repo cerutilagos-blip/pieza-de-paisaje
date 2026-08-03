@@ -6,12 +6,13 @@
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <link rel="icon" type="image/png" href="assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<meta name="description" content="La Casa de Atrás — Pieza de Paisaje, Valparaíso. Ficha pendiente por falta de contenido fuente.">
+<meta name="description" content="La Casa de Atrás — Pieza de Paisaje, Cerro Delicias, Valparaíso. Tres volúmenes de 8 metros que atraviesan la techumbre de un inmueble abandonado.">
 <title>Dossier — La Casa de Atrás — Pieza de Paisaje</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/vendor/leaflet.css">
 <link rel="stylesheet" href="assets/obra.css">
 </head>
 <body>
@@ -34,7 +35,7 @@
     <a href="index.html#artista"><span class="num">05</span>Artista</a>
     <a href="index.html#colofon"><span class="num">06</span>Colofón</a>
   </nav>
-  <div class="coords"><a href="archivo.html">VALPARAÍSO · S/ COORDENADAS</a></div>
+  <div class="coords"><a href="archivo.html">33°03′S · 71°37′O</a></div>
 </header>
 
 <main>
@@ -42,14 +43,58 @@
     <section>
       <p class="ficha-dossier">Dossier · La Casa de Atrás</p>
       <h1>Pieza de Paisaje / La Casa de Atrás</h1>
-      <p class="ficha-meta">VALPARAÍSO · S/ COORDENADAS</p>
+      <p class="ficha-meta">CERRO DELICIAS, VALPARAÍSO · PALOS 2×2, MALLA GALLINERA, PINTURA BLANCA, PITA BLANCA, LUZ FLUORESCENTE · 2014 · 33°03′S 71°37′O</p>
 
-      <p class="nota-breve">Ficha pendiente: esta entrada figura en el índice real del blog ("Dossier Proyectos") pero no tiene, por ahora, contenido publicado accesible — ni descripción ni fotografías. Se deja el título en el archivo para no perder el registro, a la espera de que el propio Carlos aporte el material.</p>
+      <div class="cuerpo">
+        <div class="col-texto">
+          <p>Tres volúmenes de 8 metros de altura que atraviesan la techumbre de un inmueble abandonado desde tres de sus habitaciones.</p>
+        </div>
 
-      <div class="mapa-obra">
+        <div class="col-imagen">
+          <div class="galeria filas">
+          <figure>
+            <img src="assets/img/1d5e9b47_casa-atras-boceto.jpg" width="371" height="369" alt="Boceto de La Casa de Atrás, con las tres torres luminosas sobre la casa" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">01</span> — Boceto de La Casa de Atrás</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/img/b48f2c60_casa-atras-vista-diurna.jpg" width="979" height="734" alt="La Casa de Atrás, vista diurna de las tres torres sobre el techo de la vivienda" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">02</span> — La Casa de Atrás, vista diurna</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/img/6a3c8f12_casa-atras-torres-cerca.jpg" width="1200" height="900" alt="La Casa de Atrás, las torres luminosas vistas de cerca al anochecer, entre ramas de un árbol" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">03</span> — La Casa de Atrás, las torres de cerca</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/img/e93a7d15_casa-atras-vista-atardecer.jpg" width="979" height="734" alt="La Casa de Atrás, vista del cerro al atardecer con las torres encendidas" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">04</span> — La Casa de Atrás, al atardecer</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/img/7c1b4e28_casa-atras-atardecer-cercano.jpg" width="979" height="734" alt="La Casa de Atrás, acercamiento a la vivienda con las torres encendidas al atardecer" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">05</span> — La Casa de Atrás, acercamiento</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/img/34d6a809_casa-atras-atardecer-amplio.jpg" width="979" height="734" alt="La Casa de Atrás, vista amplia del cerro al atardecer" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">06</span> — La Casa de Atrás, vista amplia</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/img/c25f0e93_casa-atras-vista-nocturna.jpg" width="979" height="734" alt="La Casa de Atrás, vista nocturna del cerro y la bahía de Valparaíso" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">07</span> — La Casa de Atrás, de noche</figcaption>
+          </figure>
+        </div>
+
+          <div class="mapa-obra">
             <div class="mapa-obra-cabecera"><span>Ubicación</span><span class="region">VALPARAÍSO</span></div>
-            <div class="mapa-obra-vacio">Sin coordenadas confirmadas: el blog original no registra una dirección o cerro específico para esta pieza.</div>
+            <div class="mapa-obra-mapa" data-lat="-33.046" data-lng="-71.617" data-zoom="15" role="img" aria-label="Mapa real de Valparaíso con el punto de la obra marcado en sus coordenadas exactas"></div>
+            <p class="mapa-obra-coord">33°03′S · 71°37′O</p>
           </div>
+        </div>
+      </div>
     </section>
 
     <footer class="navegacion">
@@ -59,5 +104,8 @@
   </div>
 </main>
 
+<script src="assets/vendor/leaflet.js"></script>
+<script src="assets/mapa-obra.js" defer></script>
+<script src="assets/lightbox.js" defer></script>
 </body>
 </html>
