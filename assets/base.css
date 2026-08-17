@@ -1,8 +1,8 @@
 :root{
-  --fondo:#171512; --fondo-2:#1F1B16; --fondo-3:#26211B;
-  --texto:#D8D2C4; --texto-suave:#9B9384;
-  --acento:#C88B3A; --acento-tenue:#AD8148;
-  --linea:#3A3428; --enlace:#C88B3A; --enlace-hover:#E0A44E;
+  --fondo:#1B1815; --fondo-2:#242019; --fondo-3:#2D271D;
+  --texto:#E8E2D4; --texto-suave:#AFA695;
+  --acento:#DA9B45; --acento-tenue:#C08D4E;
+  --linea:#443C2C; --enlace:#DA9B45; --enlace-hover:#F0B860;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

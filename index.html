@@ -17,10 +17,12 @@ main{max-width:1440px}
 .envoltura{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,64px)}
 /* ---------- hero ---------- */
 .hero{position:relative;padding:0;height:78vh;min-height:480px;overflow:hidden;border-bottom:1px solid var(--linea);margin-left:-240px;width:calc(100% + 240px)}
-.hero-carrusel{position:absolute;inset:0;background:#0c0b09}
-.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#0c0b09;display:block;opacity:0;z-index:0;transition:opacity 2.2s ease}
-.hero-slide.activa{opacity:1;z-index:1}
-.hero .velo{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(23,21,18,.2) 0%,rgba(23,21,18,.45) 55%,rgba(23,21,18,.78) 100%)}
+.hero-carrusel{position:absolute;inset:0;background:#141210}
+.hero-fondo{position:absolute;inset:-30px;z-index:0;background-size:cover;background-position:center;filter:blur(46px) saturate(1.25) brightness(.6);transform:scale(1.1);opacity:0;transition:opacity 1.4s ease,background-image .1s}
+.hero-fondo.activa{opacity:1}
+.hero-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:transparent;display:block;opacity:0;z-index:1;transition:opacity 2.2s ease}
+.hero-slide.activa{opacity:1;z-index:2}
+.hero .velo{position:absolute;inset:0;z-index:2;background:linear-gradient(rgba(23,21,18,.02) 0%,rgba(23,21,18,.1) 55%,rgba(23,21,18,.5) 100%);pointer-events:none}
 .hero-credito{position:absolute;z-index:2;right:clamp(20px,5vw,64px);bottom:20px;max-width:52ch;font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.03em;color:var(--texto);background:rgba(23,21,18,.55);padding:5px 10px}
 .hero-credito .pref{color:var(--acento);margin-right:2px}
 .hero-controles{position:absolute;z-index:2;right:clamp(12px,4vw,56px);top:16px;display:flex}
@@ -32,23 +34,31 @@ main{max-width:1440px}
 /* ---------- manifiesto ---------- */
 #metodologia .texto-manifiesto{font-size:1.375rem;font-weight:300;max-width:62ch;color:var(--texto)}
 /* ---------- obras ---------- */
-.obra-fila{position:relative;display:block;padding:28px 8px;border-top:1px solid var(--linea);color:var(--texto);transition:background .25s}
+.obra-fila{position:relative;display:flex;align-items:center;gap:22px;padding:18px 8px;border-top:1px solid var(--linea);color:var(--texto);transition:background .25s}
 .obra-fila:last-of-type{border-bottom:1px solid var(--linea)}
 .obra-fila:hover{background:var(--fondo-2);color:var(--texto)}
+.obra-fila .miniatura{width:78px;height:78px;flex-shrink:0;object-fit:cover;background:var(--fondo-2);border:1px solid var(--linea);filter:saturate(.88) brightness(.94);transition:filter .3s,border-color .3s}
+.obra-fila:hover .miniatura{filter:saturate(1.08) brightness(1.03);border-color:var(--acento-tenue)}
+.obra-fila .contenido{flex:1;min-width:0}
 .obra-fila .num{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--acento);margin-right:20px;transition:transform .25s}
 .obra-fila:hover .num{transform:translateX(8px)}
 .obra-fila .tit{font-size:1.75rem;font-weight:300}
 .obra-fila .lugar{display:block;font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--texto-suave);margin-top:6px}
-.obra-fila .capa{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--texto-suave);opacity:0;transition:opacity .3s;text-align:right;pointer-events:none;background:rgba(31,27,22,.85);padding:8px 10px}
+.obra-fila .capa{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--texto-suave);opacity:0;transition:opacity .3s;text-align:right;pointer-events:none;background:rgba(31,27,22,.9);padding:8px 10px}
 .obra-fila.revelado .capa,.obra-fila:hover .capa{opacity:1}
 .obra-fila.destacada{background:var(--fondo-2)}
+@media (max-width:600px){
+  .obra-fila{gap:14px}
+  .obra-fila .miniatura{width:56px;height:56px}
+  .obra-fila .tit{font-size:1.3rem}
+}
 /* ---------- globo georreferenciado ---------- */
 .globo-seccion{margin-top:72px}
 .globo-cabecera{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--texto-suave);letter-spacing:.08em;text-transform:uppercase}
 .globo-viz{position:relative;width:100%;height:600px;border:1px solid var(--linea);background:var(--fondo-2);overflow:hidden}
 #globoLienzo{position:absolute;inset:0;cursor:grab}
 #globoLienzo:active{cursor:grabbing}
-#globoLienzo canvas{filter:sepia(.85) saturate(2.4) hue-rotate(-8deg) brightness(1.55) contrast(1.2)}
+#globoLienzo canvas{filter:sepia(.45) saturate(1.6) hue-rotate(-6deg) brightness(1.15) contrast(1.05)}
 #globoTip{position:absolute;z-index:40;pointer-events:none;background:var(--fondo);color:var(--texto);padding:6px 10px;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--linea);transform:translate(-50%,-140%);white-space:nowrap;opacity:0;transition:opacity .15s}
 #globoRail{position:absolute;left:16px;bottom:16px;top:16px;width:210px;max-width:34vw;display:flex;flex-direction:column;gap:0;overflow-y:auto;border-top:1px solid var(--linea);scrollbar-width:thin}
 #globoRail::-webkit-scrollbar{width:3px}
@@ -177,6 +187,7 @@ body.brujula-on .brujula{opacity:.9}
 
   <section class="hero" data-coord="-33.0472,-71.6127" id="inicio">
     <div class="hero-carrusel" id="heroCarrusel">
+      <div class="hero-fondo activa" id="heroFondo" aria-hidden="true"></div>
       <img class="hero-slide activa" data-titulo="Ele de Lodo" data-lugar="ArtePuerto 2026, Valparaíso" data-coord="-33.0356,-71.6295" src="assets/img/f6a7b8c9_hero-ele-de-tierra.jpg" width="1600" height="1066" alt="Ele de Lodo, muro de tierra en forma de L exhibido en la feria ArtePuerto 2026, Valparaíso" fetchpriority="high" onerror="this.style.display='none'">
       <img class="hero-slide" data-titulo="El Nadador" data-lugar="Cerro Panteón, Valparaíso · 2013" data-coord="-33.0453,-71.625" src="assets/img/f2b3d4e5_hero-estructura-blanca.jpg" width="1094" height="821" alt="El Nadador, réplica en malla blanca de la piscina-guitarrón, Cerro Panteón, Valparaíso" loading="lazy" onerror="this.style.display='none'">
       <img class="hero-slide" data-titulo="Mar Muerto" data-lugar="Teatro Municipal, Las Condes · 2016" data-coord="-33.4165,-70.5954" src="assets/img/f3c4e5f6_hero-mar-muerto.jpg" width="960" height="640" alt="Mar Muerto, bote de madera intervenido frente al Teatro Municipal de Las Condes" loading="lazy" onerror="this.style.display='none'">
@@ -202,83 +213,131 @@ body.brujula-on .brujula{opacity:.9}
       <h3>01 · Obras</h3>
         <div class="obras-lista">
           <a class="obra-fila" id="obra-001" href="obra2.html">
-            <span class="num">Nº 001</span><span class="tit">Ele de Lodo</span>
-            <span class="lugar">Mercado Puerto, Valparaíso · 2026</span>
+            <img class="miniatura" src="assets/img/e5dfe80f_baja.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 001</span><span class="tit">Ele de Lodo</span>
+              <span class="lugar">Mercado Puerto, Valparaíso · 2026</span>
+            </span>
             <span class="capa">tierra, paja molida, madera entramada<br>33°02′S · 71°38′O<br>borde costero</span>
           </a>
           <a class="obra-fila" id="obra-002" href="obra6.html">
-            <span class="num">Nº 002</span><span class="tit">El Nadador Nº 1, 2 y 3</span>
-            <span class="lugar">Estación Mapocho · Concón · Cerro Panteón · Cerro Cárcel</span>
+            <img class="miniatura" src="assets/img/a2b3c4d5_nadador-estadio-concon-noche.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 002</span><span class="tit">El Nadador Nº 1, 2 y 3</span>
+              <span class="lugar">Estación Mapocho · Concón · Cerro Panteón · Cerro Cárcel</span>
+            </span>
             <span class="capa">acero, fotografía, sacos de harina<br>33°03′S · 71°38′O<br>ruina</span>
           </a>
           <a class="obra-fila" id="obra-003" href="obra22.html">
-            <span class="num">Nº 003</span><span class="tit">El Nadador Nº 4</span>
-            <span class="lugar">Cerro Cárcel, Valparaíso · 2017</span>
+            <img class="miniatura" src="assets/img/8d4b2e39_nadador4-figura-detalle.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 003</span><span class="tit">El Nadador Nº 4</span>
+              <span class="lugar">Cerro Cárcel, Valparaíso · 2017</span>
+            </span>
             <span class="capa">tablón de madera, figura de papel maché<br>33°02′S · 71°37′O<br>sede JJ.VV. Nº74</span>
           </a>
           <a class="obra-fila" id="obra-004" href="obra5.html">
-            <span class="num">Nº 004</span><span class="tit">Mar Muerto</span>
-            <span class="lugar">Teatro Municipal, Las Condes · 2016</span>
+            <img class="miniatura" src="assets/img/9a8b7c6d_mar-muerto-niebla.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 004</span><span class="tit">Mar Muerto</span>
+              <span class="lugar">Teatro Municipal, Las Condes · 2016</span>
+            </span>
             <span class="capa">bote de madera, zinc<br>33°25′S · 70°36′O<br>caleta</span>
           </a>
           <a class="obra-fila" id="obra-005" href="obra16.html">
-            <span class="num">Nº 005</span><span class="tit">La Divina Providencia</span>
-            <span class="lugar">Providencia, Santiago</span>
+            <img class="miniatura" src="assets/img/34c6bab9_DSC03133-min.JPG" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 005</span><span class="tit">La Divina Providencia</span>
+              <span class="lugar">Providencia, Santiago</span>
+            </span>
             <span class="capa">palos, malla gallinera<br>33°26′S · 70°36′O<br>vivienda</span>
           </a>
           <a class="obra-fila" id="obra-006" href="obra14.html">
-            <span class="num">Nº 006</span><span class="tit">El Jardín de las Delicias</span>
-            <span class="lugar">Cerro Delicias, Valparaíso</span>
+            <img class="miniatura" src="assets/img/1c9b5d83_jardin-delicias-fachada-roja.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 006</span><span class="tit">El Jardín de las Delicias</span>
+              <span class="lugar">Cerro Delicias, Valparaíso</span>
+            </span>
             <span class="capa">palos, latas, plumavit<br>33°03′S · 71°37′O<br>quebrada</span>
           </a>
           <a class="obra-fila" id="obra-007" href="obra15.html">
-            <span class="num">Nº 007</span><span class="tit">El Gran Queso</span>
-            <span class="lugar">Cerro La Cruz, Valparaíso</span>
+            <img class="miniatura" src="assets/img/c3d9f627_gran-queso-vista-aerea-03.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 007</span><span class="tit">El Gran Queso</span>
+              <span class="lugar">Cerro La Cruz, Valparaíso</span>
+            </span>
             <span class="capa">tabiquería de palos, fibra de vidrio<br>33°03′S · 71°37′O<br>ruina</span>
           </a>
           <a class="obra-fila" id="obra-008" href="obra17.html">
-            <span class="num">Nº 008</span><span class="tit">La Venida de los Cerros</span>
-            <span class="lugar">Cerro Yungay, Valparaíso</span>
+            <img class="miniatura" src="assets/img/9a1c4e73_venida-cerros-ruina-cercana.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 008</span><span class="tit">La Venida de los Cerros</span>
+              <span class="lugar">Cerro Yungay, Valparaíso</span>
+            </span>
             <span class="capa">maderas, latas, tubos fluorescentes<br>33°03′S · 71°37′O<br>ficha breve</span>
           </a>
           <a class="obra-fila" id="obra-009" href="obra9.html">
-            <span class="num">Nº 009</span><span class="tit">Pieza de Cartón</span>
-            <span class="lugar">Valparaíso · Santiago</span>
+            <img class="miniatura" src="assets/img/4a5b6c7d_luv-fachada-bellas-artes.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 009</span><span class="tit">Pieza de Cartón</span>
+              <span class="lugar">Valparaíso · Santiago</span>
+            </span>
             <span class="capa">cartón corrugado<br>33°26′S · 70°39′O<br>itinerante</span>
           </a>
           <a class="obra-fila" id="obra-010" href="obra10.html">
-            <span class="num">Nº 010</span><span class="tit">Pieza de Papel</span>
-            <span class="lugar">Sala El Círculo, Valparaíso · 2007</span>
+            <img class="miniatura" src="assets/img/352588a1_2079230994_1c8604f0b0.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 010</span><span class="tit">Pieza de Papel</span>
+              <span class="lugar">Sala El Círculo, Valparaíso · 2007</span>
+            </span>
             <span class="capa">4000 páginas de cuaderno<br>33°03′S · 71°37′O<br>habitación</span>
           </a>
           <a class="obra-fila" id="obra-011" href="obra4.html">
-            <span class="num">Nº 011</span><span class="tit">El Séptimo Peldaño</span>
-            <span class="lugar">Playa Ancha, Valparaíso · s/f</span>
+            <img class="miniatura" src="assets/img/76dc465d_DSC01292-min.JPG" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 011</span><span class="tit">El Séptimo Peldaño</span>
+              <span class="lugar">Playa Ancha, Valparaíso · s/f</span>
+            </span>
             <span class="capa">hormigón, material reciclado<br>33°02′S · 71°39′O<br>quebrada</span>
           </a>
           <a class="obra-fila" id="obra-012" href="obra19.html">
-            <span class="num">Nº 012</span><span class="tit">Todo es Desierto</span>
-            <span class="lugar">Barrio Miraflores, Viña del Mar</span>
+            <img class="miniatura" src="assets/img/a83f6d21_desierto-frase-instalada.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 012</span><span class="tit">Todo es Desierto</span>
+              <span class="lugar">Barrio Miraflores, Viña del Mar</span>
+            </span>
             <span class="capa">epígrafe —Álvaro de Campos—<br>33°01′S · 71°33′O<br>ficha breve</span>
           </a>
           <a class="obra-fila" id="obra-013" href="obra7.html">
-            <span class="num">Nº 013</span><span class="tit">Trazos, Trizas y Trozos</span>
-            <span class="lugar">San Pedro de Alcántara, VI Región</span>
+            <img class="miniatura" src="assets/img/d7290586__DSC3336.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 013</span><span class="tit">Trazos, Trizas y Trozos</span>
+              <span class="lugar">San Pedro de Alcántara, VI Región</span>
+            </span>
             <span class="capa">muro de tierra, trillaje de madera<br>34°46′S · 71°50′O<br>caserío</span>
           </a>
           <a class="obra-fila" id="obra-014" href="obra20.html">
-            <span class="num">Nº 014</span><span class="tit">La Casa de Atrás</span>
-            <span class="lugar">Valparaíso</span>
+            <img class="miniatura" src="assets/img/b48f2c60_casa-atras-vista-diurna.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 014</span><span class="tit">La Casa de Atrás</span>
+              <span class="lugar">Valparaíso</span>
+            </span>
             <span class="capa">sin datos aún<br>33°03′S · 71°37′O<br>ficha pendiente</span>
           </a>
           <a class="obra-fila" id="obra-015" href="obra21.html">
-            <span class="num">Nº 015</span><span class="tit">Estudio de Cama</span>
-            <span class="lugar">Cerro Florida, Valparaíso</span>
+            <img class="miniatura" src="assets/img/2e9f4c18_estudio-cama-hormigon-aerea.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 015</span><span class="tit">Estudio de Cama</span>
+              <span class="lugar">Cerro Florida, Valparaíso</span>
+            </span>
             <span class="capa">cuadernos, fierros, hormigón<br>33°03′S · 71°36′O<br>proceso</span>
           </a>
           <a class="obra-fila" id="obra-016" href="obra11.html">
-            <span class="num">Nº 016</span><span class="tit">Escritura y Espacio Público</span>
-            <span class="lugar">Viña del Mar · Valparaíso · 2006–2008</span>
+            <img class="miniatura" src="assets/img/e28e7750_enrojo1.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 016</span><span class="tit">Escritura y Espacio Público</span>
+              <span class="lugar">Viña del Mar · Valparaíso · 2006–2008</span>
+            </span>
             <span class="capa">letras de hielo, maletas intervenidas<br>33°01′S · 71°33′O<br>calle</span>
           </a>
         </div>
@@ -289,33 +348,51 @@ body.brujula-on .brujula{opacity:.9}
       <p style="max-width:62ch;color:var(--texto-suave);margin-bottom:32px">Intervenciones de mayor escala u origen colectivo, con memoria técnica propia.</p>
         <div class="obras-lista">
           <a class="obra-fila" id="proyecto-001" href="obra8.html">
-            <span class="num">Nº 001</span><span class="tit">Sortes Vergilianae</span>
-            <span class="lugar">Cerro El Vergel, Valparaíso</span>
+            <img class="miniatura" src="assets/img/31501e95_1a.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 001</span><span class="tit">Sortes Vergilianae</span>
+              <span class="lugar">Cerro El Vergel, Valparaíso</span>
+            </span>
             <span class="capa">madera, fibra de vidrio azul<br>33°03′S · 71°37′O<br>ruina incendiada</span>
           </a>
           <a class="obra-fila" id="proyecto-002" href="obra12.html">
-            <span class="num">Nº 002</span><span class="tit">El Cabrero</span>
-            <span class="lugar">Tomeco, Bio-Bio · 2019</span>
+            <img class="miniatura" src="assets/img/a84e2b44_WhatsApp_Image_2021-03-01_at_7.28.23_PM.jpeg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 002</span><span class="tit">El Cabrero</span>
+              <span class="lugar">Tomeco, Bio-Bio · 2019</span>
+            </span>
             <span class="capa">madera quemada, ferrocemento<br>36°59′S · 72°37′O<br>secano interior</span>
           </a>
           <a class="obra-fila" id="proyecto-003" href="obra.html">
-            <span class="num">Nº 003</span><span class="tit">Torre Lukutuel</span>
-            <span class="lugar">Cholguán, Ñuble · 2019</span>
+            <img class="miniatura" src="assets/img/3f7a9d62_lukutuel-vista-aerea-rotonda.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 003</span><span class="tit">Torre Lukutuel</span>
+              <span class="lugar">Cholguán, Ñuble · 2019</span>
+            </span>
             <span class="capa">madera laminada, fierro macizo<br>37°10′S · 72°04′O<br>rotonda</span>
           </a>
           <a class="obra-fila" id="proyecto-004" href="obra3.html">
-            <span class="num">Nº 004</span><span class="tit">Fata Morgana</span>
-            <span class="lugar">Quintero, Valparaíso · 2021</span>
+            <img class="miniatura" src="assets/img/89114ad5_WhatsApp_Image_2024-10-21_at_14.27.58.jpeg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 004</span><span class="tit">Fata Morgana</span>
+              <span class="lugar">Quintero, Valparaíso · 2021</span>
+            </span>
             <span class="capa">barco reconfigurado, roquerío<br>32°47′S · 71°32′O<br>espejismo</span>
           </a>
           <a class="obra-fila" id="proyecto-005" href="obra13.html">
-            <span class="num">Nº 005</span><span class="tit">La Estrella de Chile</span>
-            <span class="lugar">Muelle Histórico, Antofagasta · 2018</span>
+            <img class="miniatura" src="assets/img/310eda1b_VISU1R.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 005</span><span class="tit">La Estrella de Chile</span>
+              <span class="lugar">Muelle Histórico, Antofagasta · 2018</span>
+            </span>
             <span class="capa">madera de desecho<br>23°39′S · 70°24′O<br>muelle</span>
           </a>
           <a class="obra-fila" id="proyecto-006" href="obra18.html">
-            <span class="num">Nº 006</span><span class="tit">Caravana</span>
-            <span class="lugar">Afueras de Copiapó</span>
+            <img class="miniatura" src="assets/img/5e9b3d61_caravana-vista-general.jpg" alt="" loading="lazy" width="120" height="120">
+            <span class="contenido">
+              <span class="num">Nº 006</span><span class="tit">Caravana</span>
+              <span class="lugar">Afueras de Copiapó</span>
+            </span>
             <span class="capa">rotonda<br>27°22′S · 70°20′O<br>ficha breve</span>
           </a>
         </div>
@@ -462,6 +539,7 @@ body.brujula-on .brujula{opacity:.9}
     var dots = document.querySelectorAll(".hero-dot");
     var credito = document.getElementById("heroCredito");
     var heroEl = document.querySelector(".hero");
+    var fondo = document.getElementById("heroFondo");
     if(!slides.length || !heroEl) return;
     var actual = 0, timer = null;
 
@@ -474,6 +552,7 @@ body.brujula-on .brujula{opacity:.9}
       actual = (i + slides.length) % slides.length;
       slides[actual].classList.add("activa");
       if(dots[actual]) dots[actual].classList.add("activo");
+      if(fondo) fondo.style.backgroundImage = "url('" + slides[actual].getAttribute("src") + "')";
       if(credito) credito.innerHTML = credLine(slides[actual], actual);
       var coord = slides[actual].getAttribute("data-coord");
       if(coord){
@@ -500,6 +579,7 @@ body.brujula-on .brujula{opacity:.9}
     heroEl.addEventListener("focusin", detener);
     heroEl.addEventListener("focusout", iniciar);
 
+    if(fondo) fondo.style.backgroundImage = "url('" + slides[actual].getAttribute("src") + "')";
     var coordInicial = slides[actual].getAttribute("data-coord");
     if(coordInicial){
       heroEl.setAttribute("data-coord", coordInicial);
