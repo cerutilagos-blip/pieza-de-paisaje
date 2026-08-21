@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="description" content="El Nadador Nº 5 — Pieza de Paisaje, pasaje Gálvez, Cerro Concepción, Valparaíso. Proyecto de una figura de papel maché para la techumbre de un sitio eriazo.">
+<title>Proyecto Nº 001 — El Nadador Nº 5 — Pieza de Paisaje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/vendor/leaflet.css">
+<link rel="stylesheet" href="assets/obra.css">
+</head>
+<body>
+
+<svg class="ruido" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <filter id="r"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2"/></filter>
+  <rect width="100%" height="100%" filter="url(#r)"/>
+</svg>
+
+<header class="sidebar">
+  <div>
+    <a href="index.html" class="nombre" style="color:inherit">Carlos Ceruti Lagos</a>
+    <div class="sub">PIEZA DE PAISAJE · 2003 - 2026</div>
+  </div>
+  <nav>
+    <a href="index.html#obras"><span class="num">01</span>Obras</a>
+    <a href="index.html#proyectos"><span class="num">02</span>Proyectos</a>
+    <a href="index.html#artista"><span class="num">03</span>Artista</a>
+  </nav>
+  <div class="coords"><a href="archivo.html">33°02′S · 71°38′O</a></div>
+</header>
+
+<main>
+  <div class="envoltura">
+    <section>
+      <p class="ficha-dossier">Proyecto Nº 001</p>
+      <h1>El Nadador Nº 5</h1>
+      <p class="ficha-meta">PASAJE GÁLVEZ, CERRO CONCEPCIÓN, VALPARAÍSO · PAPEL MACHÉ · 33°02′S 71°38′O</p>
+
+      <div class="cuerpo">
+        <div class="col-texto">
+          <p>El Nadador Nº 5 continúa la serie de figuras posadas sobre ruinas y bordes de la ciudad. En este caso, el proyecto la sitúa en la techumbre de un sitio eriazo del pasaje Gálvez, en el Cerro Concepción de Valparaíso: una figura de papel maché sentada en el borde de una muralla de ladrillo, a 7,80 metros de altura, entre techos de zinc y teja.</p>
+
+          <div class="intertitulo">
+            <h3>Modelado sobre el levantamiento del sitio</h3>
+            <p>El proyecto se desarrolló a partir de un levantamiento fotogramétrico del sitio: sobre esa nube de puntos se modeló y dimensionó la figura antes de definir su emplazamiento final en el borde de la techumbre.</p>
+          </div>
+        </div>
+
+        <div class="col-imagen">
+          <div class="galeria">
+          <figure>
+            <img src="assets/img/7a4e91c3_nadador5-techumbre-galvez.jpg" width="1672" height="941" alt="Fotomontaje de El Nadador Nº 5, figura de papel maché sobre la techumbre de ladrillo del sitio eriazo del pasaje Gálvez, Cerro Concepción, Valparaíso" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">01</span> — Fotomontaje, pasaje Gálvez</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/img/2d8f56a0_nadador5-modelado-fotogrametria.jpg" width="1275" height="1650" alt="Modelo de la figura sobre la nube de puntos del levantamiento fotogramétrico del sitio, pasaje Gálvez, Cerro Concepción" loading="lazy" onerror="this.style.display='none'">
+            <figcaption><span class="pref">02</span> — Modelado sobre el levantamiento fotogramétrico</figcaption>
+          </figure>
+        </div>
+
+          <div class="mapa-obra">
+            <div class="mapa-obra-cabecera"><span>Ubicación</span><span class="region">VALPARAÍSO</span></div>
+            <div class="mapa-obra-mapa" data-lat="-33.0415" data-lng="-71.6279" data-zoom="16" role="img" aria-label="Mapa real de Valparaíso con el punto del proyecto marcado en sus coordenadas exactas"></div>
+            <p class="mapa-obra-coord">33°02′S · 71°38′O</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="navegacion">
+      <a href="obra21.html">← DOSSIER ANTERIOR · ESTUDIO DE CAMA</a>
+      <a href="index.html#proyectos">VOLVER AL ÍNDICE DE PROYECTOS</a>
+    </footer>
+  </div>
+</main>
+
+<script src="assets/vendor/leaflet.js"></script>
+<script src="assets/mapa-obra.js" defer></script>
+<script src="assets/lightbox.js" defer></script>
+</body>
+</html>
