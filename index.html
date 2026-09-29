@@ -31,6 +31,8 @@ main{max-width:1440px}
 .hero-dot:hover::after{border-color:var(--acento)}
 .hero-dot.activo::after{background:var(--acento);border-color:var(--acento)}
 .hero-dot:focus-visible{outline:2px solid var(--acento);outline-offset:-4px}
+/* carrusel de proyectos */
+.hero.hero-proyectos{margin-left:0;width:100%;border-top:1px solid var(--linea)}
 /* ---------- manifiesto ---------- */
 #metodologia .texto-manifiesto{font-size:1.375rem;font-weight:300;max-width:62ch;color:var(--texto)}
 /* ---------- obras ---------- */
@@ -351,6 +353,30 @@ body.brujula-on .brujula{opacity:.9}
         </div>
     </section>
 
+  </div>
+
+  <div class="hero hero-proyectos" data-coord="-33.04,-71.63">
+    <div class="hero-carrusel">
+      <div class="hero-fondo activa" aria-hidden="true"></div>
+      <img class="hero-slide activa" data-titulo="El Nadador Nº 5" data-lugar="Pasaje Gálvez, Cerro Concepción, Valparaíso" data-coord="-33.04,-71.63" src="assets/img/p1a2b3c4_proy-nadador5.jpg" width="1600" height="900" alt="El Nadador Nº 5, figura sobre la techumbre de una casa en Pasaje Gálvez, Cerro Concepción, Valparaíso" loading="lazy" onerror="this.style.display='none'">
+      <img class="hero-slide" data-titulo="Sortes Vergilianae" data-lugar="Cerro El Vergel, Valparaíso" data-coord="-33.05,-71.62" src="assets/img/p2b3c4d5_proy-sortes-vergilianae.jpg" width="640" height="447" alt="Sortes Vergilianae, estructura de madera con un volumen cilíndrico azul en Cerro El Vergel, Valparaíso" loading="lazy" onerror="this.style.display='none'">
+      <img class="hero-slide" data-titulo="Torre Lukutuel" data-lugar="Rotonda de Cholguán, Ñuble" data-coord="-37.17,-72.07" src="assets/img/p4d5e6f7_proy-lukutuel-torre.jpg" width="1280" height="719" alt="Torre Lukutuel, fotomontaje de la torre sobre la carretera en Cholguán, Ñuble" loading="lazy" onerror="this.style.display='none'">
+      <img class="hero-slide" data-titulo="El Cabrero" data-lugar="Área de Juegos de Tomeco, Biobío" data-coord="-36.98,-72.62" src="assets/img/p5e6f7a8_proy-el-cabrero.jpg" width="892" height="575" alt="El Cabrero, lámina técnica con la secuencia de cabras sobre postes" loading="lazy" onerror="this.style.display='none'">
+      <img class="hero-slide" data-titulo="La Estrella de Chile" data-lugar="Muelle Histórico, Antofagasta" data-coord="-23.65,-70.40" src="assets/img/p6f7a8b9_proy-estrella-de-chile.jpg" width="1280" height="720" alt="La Estrella de Chile, modelo 3D de la estrella roja y verde" loading="lazy" onerror="this.style.display='none'">
+    </div>
+    <div class="velo"></div>
+    <p class="hero-credito mono"><span class="pref">01</span> — El Nadador Nº 5 · Pasaje Gálvez, Cerro Concepción, Valparaíso</p>
+    <div class="hero-controles" role="group" aria-label="Seleccionar fotografía del carrusel de proyectos">
+      <button type="button" class="hero-dot activo" data-slide="0" aria-label="El Nadador Nº 5 — imagen 1 de 5"></button>
+      <button type="button" class="hero-dot" data-slide="1" aria-label="Sortes Vergilianae — imagen 2 de 5"></button>
+      <button type="button" class="hero-dot" data-slide="2" aria-label="Torre Lukutuel — imagen 3 de 5"></button>
+      <button type="button" class="hero-dot" data-slide="3" aria-label="El Cabrero — imagen 4 de 5"></button>
+      <button type="button" class="hero-dot" data-slide="4" aria-label="La Estrella de Chile — imagen 5 de 5"></button>
+    </div>
+  </div>
+
+  <div class="envoltura">
+
     <section id="proyectos" data-coord="-33.0472,-71.6127">
       <h3>02 · Proyectos</h3>
         <div class="obras-lista">
@@ -548,14 +574,17 @@ body.brujula-on .brujula{opacity:.9}
     })();
   }
 
-  /* g) hero: carrusel de fotografias */
-  (function(){
-    var slides = document.querySelectorAll(".hero-slide");
-    var dots = document.querySelectorAll(".hero-dot");
-    var credito = document.getElementById("heroCredito");
-    var heroEl = document.querySelector(".hero");
-    var fondo = document.getElementById("heroFondo");
-    if(!slides.length || !heroEl) return;
+  /* g) carruseles de fotografias (inicio y proyectos) */
+  function visible(el){
+    var r = el.getBoundingClientRect(), m = window.innerHeight/2;
+    return r.top < m && r.bottom > m;
+  }
+  document.querySelectorAll(".hero").forEach(function(heroEl){
+    var slides = heroEl.querySelectorAll(".hero-slide");
+    var dots = heroEl.querySelectorAll(".hero-dot");
+    var credito = heroEl.querySelector(".hero-credito");
+    var fondo = heroEl.querySelector(".hero-fondo");
+    if(!slides.length) return;
     var actual = 0, timer = null;
 
     function credLine(img, i){
@@ -572,40 +601,51 @@ body.brujula-on .brujula{opacity:.9}
       var coord = slides[actual].getAttribute("data-coord");
       if(coord){
         heroEl.setAttribute("data-coord", coord);
-        if(coordEl){
+        if(coordEl && visible(heroEl)){
           var c = coord.split(",");
           coordEl.textContent = fmt(parseFloat(c[0]), parseFloat(c[1]));
         }
       }
     }
+    /* corre solo si esta en pantalla, la pestana esta activa y no hay foco de teclado en los puntos */
+    var enPantalla = true, focoTeclado = false;
     function siguiente(){ ir(actual + 1); }
     function detener(){ if(timer){ clearInterval(timer); timer = null; } }
     function iniciar(){
       detener();
-      if(reduce) return;
+      if(reduce || !enPantalla || focoTeclado || document.hidden) return;
       timer = window.setInterval(siguiente, 5000);
     }
 
     dots.forEach(function(d,i){
       d.addEventListener("click", function(){ ir(i); iniciar(); });
     });
-    heroEl.addEventListener("mouseenter", detener);
-    heroEl.addEventListener("mouseleave", iniciar);
-    heroEl.addEventListener("focusin", detener);
-    heroEl.addEventListener("focusout", iniciar);
+    heroEl.addEventListener("focusin", function(e){
+      var t = e.target;
+      focoTeclado = !!(t.matches && t.matches(":focus-visible"));
+      iniciar();
+    });
+    heroEl.addEventListener("focusout", function(){ focoTeclado = false; iniciar(); });
+    document.addEventListener("visibilitychange", iniciar);
+    if("IntersectionObserver" in window){
+      new IntersectionObserver(function(es){
+        enPantalla = es[0].isIntersecting;
+        iniciar();
+      },{threshold:0.15}).observe(heroEl);
+    }
 
     if(fondo) fondo.style.backgroundImage = "url('" + slides[actual].getAttribute("src") + "')";
     var coordInicial = slides[actual].getAttribute("data-coord");
     if(coordInicial){
       heroEl.setAttribute("data-coord", coordInicial);
-      if(coordEl){
+      if(coordEl && visible(heroEl)){
         var ci = coordInicial.split(",");
         coordEl.textContent = fmt(parseFloat(ci[0]), parseFloat(ci[1]));
       }
     }
 
     iniciar();
-  })();
+  });
 })();
 </script>
 
